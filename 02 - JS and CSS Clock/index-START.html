@@ -80,6 +80,12 @@
                 const secondsDegrees = (seconds / 60) * 360 + 90;
                 secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
 
+                if (secondsDegrees === 90) {
+                    secondHand.style.transition = "none"; // Disable transition when resetting
+                } else {
+                    secondHand.style.transition = ""; // Re-enable transition
+                }
+
                 const minute = now.getMinutes();
                 const minDegrees = (minute / 60) * 360 + 90;
                 minHand.style.transform = `rotate(${minDegrees}deg)`;
